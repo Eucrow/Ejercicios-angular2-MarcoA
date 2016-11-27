@@ -1,0 +1,43 @@
+<div class="metadata">
+    <div class="avatar">
+        <img [src]="post.author.avatar">
+    </div>
+    <div class="author">
+        <!--
+        |----------------------------------------------------------------------|
+        | Red Path    DONE!!                                                   |
+        |----------------------------------------------------------------------|
+        | Un clic sobre el autor debería enviar un evento al componente padre. |
+        |----------------------------------------------------------------------|
+        -->
+        <span
+            (click) = "notificarAutorSeleccionado(post.author)"
+            class="name blink-font">
+                {{ post.author.name }}
+        </span>
+        <!--
+        |-------------------------------------------------------------------------------|
+        | Blue Path DONE!!!                                                             |
+        |-------------------------------------------------------------------------------|
+        | Una vez tengas creado el pipe FromNowPipe, úsalo con la fecha de publicación. |
+        |-------------------------------------------------------------------------------|
+        -->
+        <span class="date">{{ post.publicationDate | FromNow }}</span>
+    </div>
+</div>
+<!--
+|---------------------------------------------------------------------|
+| Green Path  DONE!!!                                                          |
+|---------------------------------------------------------------------|
+| Un clic sobre el post debería enviar un evento al componente padre. |
+|---------------------------------------------------------------------|
+-->
+<div class="post">
+    <h3 (click) = "notificarPostSeleccionado(post)">{{ post.title }}</h3>
+    <img
+        (click) = "notificarPostSeleccionado(post)"
+        *ngIf="post.media" [src]="post.media" class="u-max-full-width">
+    <div
+        (click) = "notificarPostSeleccionado(post)"
+        class="html-text" [innerHtml]="plainTextToHtml(post.intro)"></div>
+</div>

@@ -1,0 +1,23 @@
+<!--
+|--------------------------------------------------------------------------|
+| Red Path   DONE!!                                                        |
+|--------------------------------------------------------------------------|
+| Suscribe el componente PostPreviewComponent al evento que hayas definido |
+| en él para notificar los clics sobre los autores de los posts.           |
+|--------------------------------------------------------------------------|
+-->
+
+<!--
+|--------------------------------------------------------------------------|
+| Green Path  DONE!!!                                                               |
+|--------------------------------------------------------------------------|
+| Suscribe el componente PostPreviewComponent al evento que hayas definido |
+| en él para notificar los clics sobre los posts.                          |
+|--------------------------------------------------------------------------|
+-->
+
+<post-preview 
+    *ngFor="let post of posts" [post]="post"
+    (postSeleccionado) = "redirigeAlPost($event)"
+    (userSeleccionado) = "redirigeAlListadoDePostsDeUsuario($event)"
+    ></post-preview>
